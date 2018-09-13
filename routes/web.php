@@ -21,3 +21,17 @@ Route::get('/', function () {
 
     return view('welcome', compact('tasks'));
 });
+
+Route::get('/my_cv', function() {
+
+    $data = [
+        'name' => "Hồ Anh Tiến",
+        'age' => 20,
+        'address' => 'Hanoi',
+        'university' => 'HUST',
+        'skills' => 'HTML, CSS, JS, PHP, Laravel'
+    ];
+
+    return view('cv', $data);
+
+});
