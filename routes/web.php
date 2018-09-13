@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\DB;
+
 Route::get('/', function () {
 
     $tasks = [
@@ -33,5 +35,20 @@ Route::get('/my_cv', function() {
     ];
 
     return view('cv', $data);
+
+});
+
+Route::get('/province', function() {
+   $provinces = \App\Province::all();
+
+   return view('provinces.index', compact('provinces'));
+});
+
+Route::get('/province/{unit_id}', function($unit_id) {
+
+//    $province = DB::table('provinces')->where('unit_id', $unit_id)->first();
+    $province = \App\Province::where('unit_id', $unit_id)->first();
+
+    return view('provinces.province', compact('province'));
 
 });
