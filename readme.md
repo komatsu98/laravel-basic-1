@@ -13,3 +13,17 @@ Thực hiện bởi [Hồ Anh Tiến](https://github.com/komatsu98)
 ## Kiến thức nắm được
 
 Năm được cơ bản cài đặt, bắt đầu code với laravel
+
+## Laravel basic 2
+
+Thực hiện bởi [Hồ Anh Tiến](https://github.com/komatsu98)
+
+## Liên kết
+
+- [Videos](https://laracasts.com/series/laravel-from-scratch-2017/episodes/2)
+- [Added Province model](https://floating-peak-79744.herokuapp.com/province)
+
+## Kiến thức nắm được
+
+- Cơ bản migration
+- Model
