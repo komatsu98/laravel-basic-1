@@ -12,6 +12,9 @@
 */
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use App\Province;
+
 
 Route::get('/', function () {
 
@@ -36,6 +39,16 @@ Route::get('/my_cv', function() {
 
     return view('cv', $data);
 
+});
+
+Route::post('/province', function(Request $request) {
+    $province = new Province();
+    $province->unit_id = $request->unit_id;
+    $province->name = $request->name;
+    $province->level = $request->level;
+    $province->note = $request->note;
+    $province->valid_date = $request->valid_date;
+    $province->save();
 });
 
 Route::get('/province', function() {
