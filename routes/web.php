@@ -13,7 +13,8 @@
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Province;
+use App\Models\Province;
+use \App\Http\Controllers\ProvinceController;
 
 
 Route::get('/', function () {
@@ -41,27 +42,14 @@ Route::get('/my_cv', function() {
 
 });
 
-Route::post('/province', function(Request $request) {
-    $province = new Province();
-    $province->unit_id = $request->unit_id;
-    $province->name = $request->name;
-    $province->level = $request->level;
-    $province->note = $request->note;
-    $province->valid_date = $request->valid_date;
-    $province->save();
+Route::get('/province', 'ProvinceController@index');
+
+Route::get('/province/{unit_id}', 'ProvinceController@get_province_by_unit_id');
+
+Route::get('/frontend', function() {
+    return view('provinces.frontend');
 });
 
-Route::get('/province', function() {
-   $provinces = \App\Province::all();
-
-   return view('provinces.index', compact('provinces'));
-});
-
-Route::get('/province/{unit_id}', function($unit_id) {
-
-//    $province = DB::table('provinces')->where('unit_id', $unit_id)->first();
-    $province = \App\Province::where('unit_id', $unit_id)->first();
-
-    return view('provinces.province', compact('province'));
-
+Route::prefix('admin')->group(function () {
+    Route::post('/province', 'ProvinceController@add_province');
 });
