@@ -51,7 +51,7 @@ Route::get('/posts', 'PostsController@index');
 Route::get('/posts/{post}', 'PostsController@show');
 Route::prefix('admin')->group(function () {
     Route::post('/provinces', 'ProvincesController@store');
-    Route::get('/provinces', 'ProvincesController@create');
+    Route::get('/provinces/create', 'ProvincesController@create');
     Route::get('/posts/create', 'PostsController@create');
     Route::post('/posts', 'PostsController@store');
 });
