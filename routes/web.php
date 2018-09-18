@@ -43,18 +43,15 @@ Route::get('/my_cv', function() {
 
 });
 
-Route::get('/province', 'ProvincesController@index');
+Route::get('/provinces', 'ProvincesController@index');
 
-Route::get('/province/{unit_id}', 'ProvincesController@get_province_by_unit_id');
-
-Route::get('/frontend', function() {
-    return view('provinces.frontend');
-});
+Route::get('/provinces/{unit_id}', 'ProvincesController@show');
 
 Route::get('/posts', 'PostsController@index');
 Route::get('/posts/{post}', 'PostsController@show');
 Route::prefix('admin')->group(function () {
-    Route::post('/province', 'ProvincesController@add_province');
+    Route::post('/provinces', 'ProvincesController@store');
+    Route::get('/provinces', 'ProvincesController@create');
     Route::get('/posts/create', 'PostsController@create');
     Route::post('/posts', 'PostsController@store');
 });
