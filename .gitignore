@@ -8,8 +8,8 @@
 /.vagrant
 Homestead.json
 Homestead.yaml
-.env
-.editorconfig
+!.env
+!.editorconfig
 .env.example
 npm-debug.log
 yarn-error.log
