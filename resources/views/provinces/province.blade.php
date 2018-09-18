@@ -1,4 +1,4 @@
-<?php use Carbon\Carbon?>
+<?php use Carbon\Carbon; ?>
         <!DOCTYPE html>
 @extends ('layouts.master')
 @section('content')
