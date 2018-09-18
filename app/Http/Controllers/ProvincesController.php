@@ -27,6 +27,12 @@ class ProvincesController extends Controller
     }
 
     public function store(Request $request) {
+        $this->validate([
+            'name' => 'required',
+            'unit_id' => 'required',
+            'level' => 'required',
+            'valid_date' => 'required',
+        ]);
         $check = Province::where('unit_id', $request->unit_id)->first();
         if($check) return "Mã tỉnh đã tồn tại!";
 
