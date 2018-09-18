@@ -27,7 +27,7 @@ class ProvincesController extends Controller
     }
 
     public function store(Request $request) {
-        $this->validate([
+        $this->validate(request(),[
             'name' => 'required',
             'unit_id' => 'required',
             'level' => 'required',
