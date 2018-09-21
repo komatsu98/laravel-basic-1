@@ -13,7 +13,7 @@
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Models\Province;
+use App\Province;
 use App\Http\Controllers\ProvincesController;
 use App\Http\Controllers\PostsController;
 
@@ -27,7 +27,7 @@ Route::get('/', function () {
     ];
 
     return view('welcome', compact('tasks'));
-});
+})->name('home');
 
 Route::get('/my_cv', function() {
 
@@ -55,3 +55,12 @@ Route::prefix('admin')->group(function () {
     Route::get('/posts/create', 'PostsController@create');
     Route::post('/posts', 'PostsController@store');
 });
+
+Route::post('/posts/{post}/comments', 'CommentsController@store');
+
+Route::get('/register', 'RegistrationController@create');
+Route::post('/register', 'RegistrationController@store');
+
+Route::get('/login', 'SessionsController@create');
+Route::post('/login', 'SessionsController@store');
+Route::get('/logout', 'SessionsController@destroy');

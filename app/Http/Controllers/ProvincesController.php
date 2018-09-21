@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Models\Province;
+use App\Province;
 
 class ProvincesController extends Controller
 {
