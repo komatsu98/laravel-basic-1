@@ -21,7 +21,7 @@
             <input type="text" class="form-control" id="level" name="level">
         </div>
         <div class="form-group">
-            <label for="valid_date">Ngày có hiệu lực</label>
+            <label for="valid_date">Ngày có hiệu lực (dd/mm/yyyy)</label>
             <input type="text" class="form-control" id="valid_date" name="valid_date">
         </div>
         <div class="form-group">

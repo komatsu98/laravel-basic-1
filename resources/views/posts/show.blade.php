@@ -14,23 +14,25 @@
 
     <hr>
     {{--add comment--}}
-    <div class="card">
-        <div class="card-block">
-            <form method="POST" action="/posts/{{ $post->id }}/comments">
-                {{--{{ method_field('PATCH') }}--}}
 
-                @csrf
+    <form method="POST" action="/posts/{{ $post->id }}/comments">
+        {{--{{ method_field('PATCH') }}--}}
 
-                <div class="form-group">
-                    <textarea name="body" placeholder="Your comment here" class="form-control"></textarea>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Add Comment</button>
-                </div>
-            </form>
+        @csrf
+
+        <div class="form-group">
+            <textarea name="body" placeholder="Your comment here" class="form-control"></textarea>
         </div>
-        @include('layouts.errors')
 
-    </div>
+        <div class="form-group">
+            @if(!auth()->id())
+                <div type="" class="btn btn-primary disabled">Sign In to Add Comment</div>
+            @else
+                <button type="submit" class="btn btn-primary">Add Comment</button>
+            @endif
+        </div>
+    </form>
+    @include('layouts.errors')
+
 
 @endsection

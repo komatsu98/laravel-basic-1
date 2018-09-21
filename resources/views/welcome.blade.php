@@ -8,9 +8,12 @@
 
 <body>
 <ul>
-    @foreach ($tasks as $task)
-        <li>{{ $task }}</li>
-    @endforeach
+    <li>
+        <a href="/posts">Blog</a>
+    </li>
+    <li>
+        <a href="/provinces">Provinces</a>
+    </li>
 </ul>
 </body>
 </html>
