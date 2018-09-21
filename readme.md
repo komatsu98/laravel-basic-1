@@ -42,3 +42,30 @@ Thực hiện bởi [Hồ Anh Tiến](https://github.com/komatsu98)
 
 - Controller
 - Layout
+
+## Laravel basic 4
+
+Thực hiện bởi [Hồ Anh Tiến](https://github.com/komatsu98)
+
+## Liên kết
+
+- [Videos](https://laracasts.com/series/laravel-from-scratch-2017/episodes/2)
+- [sass](https://github.com/komatsu98/laravel-basic-1/tree/master/resources/sass)
+
+## Kiến thức nắm được
+
+- Sử dụng laravel mix để compile css/js 
+
+## Laravel basic 5
+
+Thực hiện bởi [Hồ Anh Tiến](https://github.com/komatsu98)
+
+## Liên kết
+
+- [Videos](https://laracasts.com/series/laravel-from-scratch-2017/episodes/2)
+- [Authentication](http://floating-peak-79744.herokuapp.com/posts)
+
+## Kiến thức nắm được
+
+- Authentication
+- Handle Multi Database Connection
