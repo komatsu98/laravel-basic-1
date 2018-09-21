@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use function Couchbase\defaultDecoder;
+use Exception;
+use Illuminate\Database\Connection;
 use Illuminate\Http\Request;
 use App\Post;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
@@ -20,12 +24,28 @@ class PostsController extends Controller
             $posts->filter(request(['month', 'year']));
         }
         $posts = $posts->get();
-
-        $archives = Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
-            ->groupBy('year', 'month')
-            ->orderByRaw('min(created_at)')
-            ->get()
-            ->toArray();
+        $db_driver = DB::connection()->getPDO()->getAttribute(constant("PDO::ATTR_DRIVER_NAME"));
+        switch ($db_driver)
+        {
+            case 'mysql':
+                $archives = Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
+                    ->groupBy('year', 'month')
+                    ->orderByRaw('min(created_at)')
+                    ->get()
+                    ->toArray();
+                break;
+            case 'pgsql':
+                //
+                $archives = Post::selectRaw('year(created_at) as year, month(created_at) month')
+                    ->groupBy('year', 'month')
+                    ->orderByRaw('min(created_at)')
+                    ->get()
+                    ->toArray();
+                break;
+            default:
+                throw new Exception('Driver not supported.');
+                break;
+        }
 
         $data = [
             'posts' => $posts,
