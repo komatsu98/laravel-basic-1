@@ -27,7 +27,11 @@ class PostsController extends Controller
             ->get()
             ->toArray();
 
-        return view('posts.index', compact('posts', 'archives'));
+        $data = [
+            'posts' => $posts,
+            'archives' => $archives
+        ];
+        return view('posts.index', $data);
     }
 
     function show(Post $post)
