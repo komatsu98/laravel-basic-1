@@ -16,7 +16,7 @@
     {{--add comment--}}
     <div class="card">
         <div class="card-block">
-            <form method="POST" action="/post/{{ $post->id }}/comments">
+            <form method="POST" action="/posts/{{ $post->id }}/comments">
                 {{--{{ method_field('PATCH') }}--}}
 
                 @csrf

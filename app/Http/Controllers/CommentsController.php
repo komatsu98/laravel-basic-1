@@ -10,16 +10,18 @@ class CommentsController extends Controller
 {
     //
 
-    public function store(Post $post) {
+    public function store(Post $post)
+    {
 
         $this->validate(request(), ['body' => 'required|min:2']);
 
         $post->addComment(request('body'));
 
-//        Comment::create([
-//            'body' => request('body'),
-//            'post_id' => $post->id
-//        ]);
+//        $cmt = new Comment();
+//        $cmt->user_id = auth()->id();
+//        $cmt->body = request('body');
+//        $cmt->post_id = $post->id;
+//        $cmt->save();
 
         return back();
     }

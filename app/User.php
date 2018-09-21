@@ -32,6 +32,10 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
+
     public function publish(Post $post)
     {
         $this->posts()->save($post);
@@ -41,4 +45,5 @@ class User extends Authenticatable
 //            'user_id' => auth()->id
 //        ]);
     }
+
 }

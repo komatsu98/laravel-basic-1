@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use function Couchbase\defaultDecoder;
 use Exception;
-use Illuminate\Database\Connection;
 use Illuminate\Http\Request;
 use App\Post;
 use Carbon\Carbon;
