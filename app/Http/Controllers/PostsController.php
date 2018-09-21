@@ -36,7 +36,7 @@ class PostsController extends Controller
                 break;
             case 'pgsql':
                 //
-                $archives = Post::selectRaw('year(created_at) as year, month(created_at) as month')
+                $archives = Post::selectRaw('extract(year FROM created_at) as year, extract(month FROM created_at) as month')
                     ->groupBy('year', 'month')
                     ->orderByRaw('min(created_at)')
                     ->get()
