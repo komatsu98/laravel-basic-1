@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
             <label for="body">Body</label>
-            <input type="text" class="form-control" id="body" name="body" placeholder="">
+            <textarea type="text" class="form-control" id="body" name="body" placeholder=""></textarea>
         </div>
 
         <div class="form-group">
